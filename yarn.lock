@@ -1884,9 +1884,9 @@
     eslint-visitor-keys "^2.0.0"
 
 "@vant/area-data@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.nlark.com/@vant/area-data/download/@vant/area-data-1.1.1.tgz#b9acf8a804c0d60f721b6900680299422b006b1a"
-  integrity sha1-uaz4qATA1g9yG2kAaAKZQisAaxo=
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@vant/area-data/-/area-data-1.2.1.tgz#f69b3db8124a4844aab23fbefa48503db4e8760a"
+  integrity sha512-Ah6OAIx879eYDjVCkxEUGYxXxI7oGvZ4U7Tn6Nf+LHbh3llu1+5BfnMEBe/GXc3SaVdN9YV0Z7Kl4I6HMmKhuA==
 
 "@vant/cli@^3.11.2":
   version "3.11.2"
