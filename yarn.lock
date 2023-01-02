@@ -1965,10 +1965,10 @@
     eslint-plugin-markdown "^2.0.0"
     eslint-plugin-vue "^7.1.0"
 
-"@vant/icons@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.npmjs.org/@vant/icons/-/icons-1.7.0.tgz#02d427532a8142c35db159da9c364fe6890c3ac9"
-  integrity sha512-sqKvtYcSgSd6+AU1nBPaZARn2Nzf8hi0ErLhfXVR6f+Y7R0gojGZVoxuB83yUI6+0LwbitW5IfN3E6qzEsu21Q==
+"@vant/icons@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@vant/icons/-/icons-2.0.0.tgz#7fcecb3b53811e269bdd11e19ee72ff2ca698630"
+  integrity sha512-w2VlRGAyH3X++CqEhBkZmW1U6O4A6peXXPpki0zVtXfJbXKIzFBZW0TRsA160IGeDcmuUX0N6tpUS50i+2S3AA==
 
 "@vant/lazyload@^1.2.0":
   version "1.2.0"
