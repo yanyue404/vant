@@ -40,7 +40,9 @@ export function updateOverlay(vm: any): void {
     const el = vm.$el;
     const { config, overlay } = item;
 
+    // 层叠上下文 overlay 与 popup 平级
     if (el && el.parentNode) {
+      // el 前已经有了 overlay.$el 不会再新增 overlay 组件
       el.parentNode.insertBefore(overlay.$el, el);
     }
 

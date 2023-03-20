@@ -80,6 +80,7 @@ export function PopupMixin(options = {}) {
     },
 
     watch: {
+      // 手动设置修改开关
       value(val) {
         const type = val ? 'open' : 'close';
         this.inited = this.inited || this.value;
@@ -170,7 +171,7 @@ export function PopupMixin(options = {}) {
           }
         }
       },
-
+      // 默认点击 Overlay 可以触发
       close() {
         if (!this.opened) {
           return;
@@ -212,11 +213,12 @@ export function PopupMixin(options = {}) {
         }
 
         this.$nextTick(() => {
+          // popup 有遮罩直接加 2，否则 + 1
           this.updateZIndex(this.overlay ? 1 : 0);
-
+          // 遮罩在 context.zIndex 的基础上加 1
           if (this.overlay) {
             openOverlay(this, {
-              zIndex: context.zIndex++,
+              zIndex: context.zIndex++, // ++在后，下一轮再自增，遮罩始终必 popup 小 1
               duration: this.duration,
               className: this.overlayClass,
               customStyle: this.overlayStyle,
@@ -228,6 +230,7 @@ export function PopupMixin(options = {}) {
       },
 
       updateZIndex(value = 0) {
+        // ++ 在前，zIndex会本轮自增
         this.$el.style.zIndex = ++context.zIndex + value;
       },
 

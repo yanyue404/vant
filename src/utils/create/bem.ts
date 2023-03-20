@@ -16,7 +16,7 @@ function gen(name: string, mods?: Mods): string {
   }
 
   if (typeof mods === 'string') {
-    return ` ${name}--${mods}`;
+    return ` ${name}--${mods}`; // 装饰类
   }
 
   if (Array.isArray(mods)) {
@@ -31,6 +31,7 @@ function gen(name: string, mods?: Mods): string {
 
 export function createBEM(name: string) {
   return function (el?: Mods, mods?: Mods): Mods {
+    // createNamespace 绑定了 'button'
     if (el && typeof el !== 'string') {
       mods = el;
       el = '';

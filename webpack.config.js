@@ -4,6 +4,7 @@ module.exports = function () {
   }
 
   return {
+    devtool: 'source-map',
     entry: {
       'site-mobile': ['./docs/site/entry'],
       'site-desktop': ['./docs/site/entry'],
