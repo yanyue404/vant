@@ -10,6 +10,7 @@ module.exports = {
     },
   },
   site: {
+    headHtml: `<script defer src="//mcdn.tk.cn/tk-online/assets/public-js/lib/vconsole.min.js"></script>`,
     defaultLang: 'en-US',
     versions: [
       { label: 'v1', link: '/vant/v1/' },

@@ -11,6 +11,7 @@ import {
 import { on, off, preventDefault } from '../../utils/dom/event';
 import { removeNode } from '../../utils/dom/node';
 import { getScroller } from '../../utils/dom/scroll';
+import { log } from '../../utils';
 
 // Mixins
 import { TouchMixin } from '../touch';
@@ -134,6 +135,7 @@ export function PopupMixin(options = {}) {
         if (this.$isServer || this.opened) {
           return;
         }
+        log('打开 vant popup');
 
         // cover default zIndex
         if (this.zIndex !== undefined) {
@@ -184,25 +186,46 @@ export function PopupMixin(options = {}) {
       },
 
       onTouchMove(event) {
+        console.log('touchmove 事件触发：');
         this.touchMove(event);
-        const direction = this.deltaY > 0 ? '10' : '01';
+        const direction = this.deltaY > 0 ? '10' : '01'; // 10 向上， 01 向下
         const el = getScroller(event.target, this.$el);
+        // scrollTop 已经滚动的高度（内容顶部卷起来的部分 >= 0）
+        // scrollHeight 可滚动内容的高度
+        // offsetHeight 元素内部的高度（含内边距）
         const { scrollHeight, offsetHeight, scrollTop } = el;
         let status = '11';
 
         /* istanbul ignore next */
+        // 默认状态下，能滚动也还没滚
         if (scrollTop === 0) {
+          // 00 不能滚，01 可以滚
           status = offsetHeight >= scrollHeight ? '00' : '01';
         } else if (scrollTop + offsetHeight >= scrollHeight) {
+          // 10 可以滚
           status = '10';
         }
+
+        console.log({
+          el,
+          scrollHeight,
+          offsetHeight,
+          scrollTop,
+          status,
+          direction,
+        });
 
         /* istanbul ignore next */
         if (
           status !== '11' &&
           this.direction === 'vertical' &&
+          // ! 拦截向上下两个方向不能滑动的情况，不要穿透了
+          // 第一个 parseInt：选中 00 不能滚的情况 ('00', 2) = 0
+          // & 按位与（在 a,b 的位表示中，每一个对应的位都为 1 则返回 1，否则返回 0） https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Expressions_and_Operators
+          // 第二个 parseInt：选中上下两个方向，('10', 2) => 2, ('01', 2) => 1
           !(parseInt(status, 2) & parseInt(direction, 2))
         ) {
+          console.log('滚动穿透被拦截了！');
           preventDefault(event, true);
         }
       },

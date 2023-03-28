@@ -27,6 +27,23 @@
 
 ---
 
+## 使用方式
+
+```bash
+# 本地开发
+npm run dev
+
+# 预览
+http://localhost:8080/#/zh-CN/
+
+# 真机预览（同网段 ip）
+
+http://192.168.1.3:8080/mobile.html#/zh-CN/popup
+
+# 发版 v2 (gh-pages)
+npm run release:site
+```
+
 ## Features
 
 - 🚀 1KB Component average size (min+gzip)

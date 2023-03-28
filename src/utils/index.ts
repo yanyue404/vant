@@ -77,3 +77,12 @@ export function isEmpty(value: any): boolean {
 
   return Object.keys(value).length === 0;
 }
+
+export function log(str: string) {
+  console.log(
+    '%c『 learn vant』 %c '.concat('『 learn vant 』', ' %c'),
+    'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
+    'background:#ff6600; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff;',
+    str
+  );
+}
