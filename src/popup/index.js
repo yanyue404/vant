@@ -43,6 +43,9 @@ export default createComponent({
     this.onOpened = createEmitter('opened');
     this.onClosed = createEmitter('closed');
   },
+  mounted() {
+    console.log('打卡 vant popup');
+  },
 
   methods: {
     onClickCloseIcon(event) {
